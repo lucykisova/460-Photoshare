@@ -1,0 +1,22 @@
+<head>
+    <title>View likes:</title>
+</head>
+
+<body>
+    {% if message %}
+        <h4>{{message}}!</h4>
+    {% endif %}
+
+    {% if likes %}
+        <h4>These are the likes:</h4>
+        {% if users %}
+        <ul>
+            {% for user in users %}
+                <li>{{user[0] + " " + user[1]}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endif %}
+
+
+</body>

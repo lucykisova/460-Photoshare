@@ -1,0 +1,15 @@
+<head>
+    <title>Showing selected comments:</title>
+</head>
+
+<body>
+    {% if friends %}
+            <h2>Here are your recommended friends</h2>
+                <ul>
+                {% for friend in friends %}
+
+                    <li>{{friend[0] + " " + friend[1]}}<br>
+                {% endfor %}
+                </ul>
+        {% endif %}
+</body>

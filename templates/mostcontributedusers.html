@@ -1,0 +1,26 @@
+<head>
+    <title>Here are the top three contributing users!</title>
+</head>
+
+
+<body>
+    {% if message %}
+        <h4>{{message}}!</h4>
+    {% endif %}
+
+    {% if users %}
+        <h2>Number of photos for each user:</h2>
+        <ul>
+            {% for user in users %}
+                <li>{{user[1] + " " + user[2]}}: {{user[3]}} photos</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <ul>
+        <li><a href='/upload'>Upload a photo</a> </li>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+    </ul>
+
+</body>
