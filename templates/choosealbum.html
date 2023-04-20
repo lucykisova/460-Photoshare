@@ -1,0 +1,31 @@
+<head>
+    <title>Here are their albums</title>
+</head>
+
+{% if message %}
+    <h4>{{message}}!</h4>
+{% endif %}
+
+    <body>
+        <h2>Pick an album to browse</h2>
+
+        {% if albums %}
+                
+            <ul>
+            {% for album in albums %}
+
+                <li><a href = '/viewphotos/{{album[0]}}'>{{album[0]}}</a></li>
+            
+            {% endfor %}
+
+            </ul>
+        {% endif %}
+    </body>
+
+<ul>
+<li><a href='/createalbum'>Create an album</a></li>
+<li><a href='/viewphotos'>View your albums</a></li>
+<li><a href='/upload'>Upload a photo</a></li>
+<li><a href='/logout'>Logout</a></li>
+<li><a href='/'>Home</a></li>
+</ul>

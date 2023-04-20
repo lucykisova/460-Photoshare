@@ -1,0 +1,9 @@
+<head>
+    <title>Showing selected comments:</title>
+</head>
+
+<body>
+    {% for comment in data %}
+        <li><a href = '/viewprofile/{{comment[0]}}'>User {{comment[0]}}</a> said: {{comment[1]}}</li>
+    {% endfor %}
+</body>

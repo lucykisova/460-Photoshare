@@ -1,0 +1,35 @@
+<head>
+    <title>User tags</title>
+</head>
+
+
+<body>
+    {% if message %}
+        <h4>{{message}}!</h4>
+    {% endif %}
+    <h1>User tags</h1>
+    {% if tags %}
+
+        <ul>
+            {% for tag in tags %}
+                <li>
+                    {{tag[0]}}
+                </li>
+                <form method="post" action="/user_tags">
+                    <input type="hidden" name="tag_name" value="{{tag[0]}}">
+                    <input type="submit" value="View Photos">
+                </form>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if photos %}
+        {% for photo in photos %}
+            <li>{{photo[1]}}<br />
+            <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}' />
+        {% endfor %}
+
+    {% else %}
+        <p>There are no tags.</p>
+    {% endif %}
+</body>

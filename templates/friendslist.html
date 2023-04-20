@@ -1,0 +1,26 @@
+<head>
+    <title>Here are your friends!</title>
+</head>
+    <body>
+        {% if message %}
+            <h4>{{message}}!</h4>
+        {% endif %}
+        
+        {% if friends %}
+            <h2>Here are your friends</h2>
+                <ul>
+                {% for friend in friends %}
+
+                    <li>{{friend[0] + " " + friend[1]}}<br>
+                {% endfor %}
+                </ul>
+        {% endif %}
+
+    </body>
+
+    <ul>
+        <li><a href='/addfriend'>Add a Friend</a> </li>
+        <li><a href='/upload'>Upload a photo</a></li>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+    </ul>

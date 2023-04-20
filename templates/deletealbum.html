@@ -1,0 +1,32 @@
+<head>
+    <title>Delete an album</title>
+</head>
+
+{% if message %}
+    <h4>{{message}}</h4>
+{% endif %}
+
+{% if albums %}
+    {%for album in albums%}
+        <label for="album_id">{{album[0]}}</label><br />
+    {%endfor%}
+<br />
+{% endif %}
+
+<body>
+    <h2>Delete an Album</h2>
+        <form method="post" action="{{ url_for('deleteAlbum') }}">
+            <label for="album_name"> Enter the Album you want to delete:</label>
+            <input type="text" name="album_name" required="true"  /><br />
+            <input type="submit"/>
+        </form>
+    
+</body>
+<ul>
+    
+    <li><a href='/upload'>Upload a photo</a> </li>
+    <li><a href='/createalbum'>Create an Album!</li>
+    <li><a href='/browsealbum'>Browse other users albums!</li>
+    <li><a href='/logout'>Logout</a></li>
+    <li><a href='/'>Home</a></li>
+</ul>

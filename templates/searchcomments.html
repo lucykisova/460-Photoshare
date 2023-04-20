@@ -1,0 +1,17 @@
+<head>
+   <title>
+        Search users by comments:
+   </title>
+</head>
+<body>
+   <h1>Search Comments:</h1>
+   <form method="post" action = "{{url_for('searchcomments')}}">
+       <label type="text" name="comment">Comment:</label>
+       <input type="text" name="comment" required="true"><br />
+       <input type="submit" name="search" value="Search">
+   </form>
+
+   
+   <a href='/'>Go Home</a>
+   <a href="/viewalbums">Back to Albums</a>
+ </body>

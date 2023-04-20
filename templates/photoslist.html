@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+   <title>Show Pictures</title>
+ </head>
+
+
+<body>
+{% if message %}
+ <h2>{{message}}</h2>
+{% endif %}
+
+{% if albums %}
+    <h2>Albums</h2>
+    <ul>
+        {% for album in albums %}
+
+
+        <a href='/viewphotos/{{album[0]}}'>{{album[0]}}</a><br />
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+{% if photos %}
+ <ul>
+ {% for photo in photos %}
+
+
+     <li>{{photo[2]}}<br>
+     <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+     <br>
+     <form method="post" action="{{url_for('DeletePhotos')}}">
+       <input type="hidden" name="photo_id" value="{{photo[1]}}">
+       <input type="submit" name="delete" value="Delete">
+     </form>
+
+     <form method="post" action="{{url_for('showLikes')}}">
+       <input type="hidden" name="photo_id" value="{{photo[1]}}">
+       <input type="submit" name="all_likes" value="Show likes">
+     </form>
+     
+     <form method="post" action="{{url_for('likePhoto')}}">
+       <input type="hidden" name="photo_id" value="{{photo[1]}}">
+       <input type="submit" name="like" value="Like Photo">
+     </form>
+
+     <form method = "post" action="{{url_for('addComment')}}">
+       <input type="hidden" name="photo_id" value="{{photo[1]}}">
+       <input type="hidden" name="user_id" value="{{photo[3]}}">
+       <label type="text" name="comment">Comment:</label>
+       <input type="text" name="comment" required="true">
+       <br />
+       <input type="submit" name="add" value="Add">
+     </form>
+
+
+  
+ {% endfor %}
+ </ul>
+{% endif %}
+
+<ul>
+   <li><a href='/upload'>Upload a photo</a></li>
+<li><a href='/createalbum'>Create an album</a></li>
+<li><a href='/deletealbum'>Delete an album</a></li>
+<li><a href='/photoslist'>Delete a photo</a></li>
+<li><a href='/logout'>Logout</a></li>
+<li><a href='/'>Home</a></li>
+   </ul>
+   <ul>
+
+
+</body>
